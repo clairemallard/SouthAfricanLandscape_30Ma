@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<badlands xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- Regular grid structure -->
+    <grid>
+        <!-- Digital elevation model file path -->
+        <demfile>../preprocess/run/correctedWaterTopo8.csv</demfile>
+        <!-- Boundary type: flat, slope or wall -->
+        <boundary>slope</boundary>
+        <!-- Optional parameter (integer) used to decrease TIN resolution.
+             The default value is set to 1. Increasing the factor
+             value will multiply the digital elevation model resolution
+             accordingly.  -->
+        <resfactor>1</resfactor>
+        <!-- Optional parameter (integer) used to force depression-less
+             surface at the start of the simulation. The default value is 0
+             to turn the option off, put it to 1 to enable it. -->
+        <nopit>0</nopit>
+    </grid>
+
+    <!-- Simulation time structure -->
+    <time>
+        <!-- Simulation start time [a] -->
+        <start>-40000000.</start>
+        <!-- Simulation end time [a] -->
+        <end>0.</end>
+        <!-- Minim time step [a] -->
+        <mindt>1.</mindt>
+        <!-- Display interval [a] -->
+        <display>200000.</display>
+        <meshout>5</meshout>
+    </time>
+
+    <!-- Sea-level structure -->
+    <sea>
+        <!-- Relative sea-level position [m] -->
+        <curve>../../seaLevel/hybrid_short.csv</curve>
+    </sea>
+
+
+    <tectonic>
+            <!--
+             Is 3D displacements on ? (1:on - 0:off). Default is 0.
+            -->
+            <disp3d>0</disp3d>
+            <!--  Number of tectonic events  -->
+            <events>8</events>
+            <!--  Displacement definition  -->
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-40.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>-35.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_35Ma.csv</dfile>
+            </disp>
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-35.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>-30.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_30Ma.csv</dfile>
+            </disp>
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-30.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>-25.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_25Ma.csv</dfile>
+            </disp>
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-25.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>-20.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_20Ma.csv</dfile>
+            </disp>
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-20.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>-15.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_15Ma.csv</dfile>
+            </disp>
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-15.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>-10.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_10Ma.csv</dfile>
+            </disp>
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-10.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>-5.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_5Ma.csv</dfile>
+            </disp>
+            <disp>
+                <!--  Displacement start time [a]  -->
+                <dstart>-5.e6</dstart>
+                <!--  Displacement end time [a]  -->
+                <dend>0.e6</dend>
+                <!--  Displacement map [m]  -->
+                <dfile>../preprocess/run/Tecto2_10_0Ma.csv</dfile>
+            </disp>
+    </tectonic>
+
+    <!-- Precipitation structure -->
+    <precipitation>
+        <!-- Number of precipitation events -->
+        <climates>4</climates>
+        <!-- Precipitation map definition -->
+        <rain>
+            <!-- Rain start time [a] -->
+            <rstart>-40.e6</rstart>
+            <!-- Rain end time [a] -->
+            <rend>-35.e6</rend>
+            <map>../preprocess/Cli_M5_35402.csv</map>
+        </rain>
+        <rain>
+            <!-- Rain start time [a] -->
+            <rstart>-35.e6</rstart>
+            <!-- Rain end time [a] -->
+            <rend>-20.e6</rend>
+            <map>../preprocess/Cli_M5_2035.csv</map>
+        </rain>
+        <rain>
+            <!-- Rain start time [a] -->
+            <rstart>-20.e6</rstart>
+            <!-- Rain end time [a] -->
+            <rend>-15.e6</rend>
+            <map>../preprocess/Cli_M5_1520.csv</map>
+        </rain>
+        <rain>
+            <!-- Rain start time [a] -->
+            <rstart>-15.e6</rstart>
+            <!-- Rain end time [a] -->
+            <rend>0.</rend>
+            <map>../preprocess/Cli_M5_015.csv</map>
+        </rain>
+    </precipitation>
+
+
+    <!-- Stream power law parameters:
+         The stream power law is a simplified form of the usual expression of
+         sediment transport by water flow, in which the transport rate is assumed
+         to be equal to the local carrying capacity, which is itself a function of
+         boundary shear stress. -->
+  <sp_law>
+        <!-- Make the distinction between purely erosive models (0) and erosion /
+            deposition ones (1). Default value is 1 -->
+        <dep>1</dep>
+        <!-- Maximum lake water filling thickness. This parameter is used
+             to defined maximum water level in depression area.
+             Default value is set to 200 m. -->
+        <fillmax>150.</fillmax>
+        <!-- Maximum percentage of deposition at any given time interval from rivers
+             sedimentary load in alluvial plain. Value ranges between [0,1] (optional). -->
+        <perc_dep>0.5</perc_dep>
+        <!-- Values of m and n indicate how the incision rate scales
+             with bed shear stress for constant value of sediment flux
+             and sediment transport capacity.
+             Generally, m and n are both positive, and their ratio
+             (m/n) is considered to be close to 0.5 -->
+        <m>0.5</m>
+        <n>1.0</n>
+        <!-- The erodibility coefficient is scale-dependent and its value depend
+              on lithology and mean precipitation rate, channel width, flood
+              frequency, channel hydraulics. In case where the erodibility
+              structure is turned on, this coefficient is applied to the reworked
+              sediments. -->
+        <erodibility>1.6e-7</erodibility>>
+        <!-- Number of steps used to distribute marine deposit.
+             Default value is 5 (integer). -->
+        <diffnb>5</diffnb>
+        <!-- Proportion of marine sediment deposited on downstream nodes. It needs
+             to be set between ]0,1[. Default value is 0.9 (optional). -->
+        <diffprop>0.01</diffprop>
+        <propa>100.</propa>
+        <propb>0.15</propb>
+
+
+  </sp_law>
+
+   <!-- Hillslope diffusion parameters:
+     Parameterisation of the sediment transport includes the simple creep transport
+     law which states that transport rate depends linearly on topographic gradient or
+     the non-linear diffusion law where a critical slope parameter needs to be defined. -->
+   <creep>
+        <!-- Surface diffusion coefficient [m2/a] -->
+        <caerial>1.5</caerial>
+        <!-- Marine diffusion coefficient [m2/a] -->
+        <cmarine>0.5</cmarine>
+        <!-- Critical slope for non-linear diffusion [m/m] - optional.
+             Default value is set to 0 meaning non-lnear diffusion is not considered. -->
+        <cslp>0.8</cslp>
+        <!-- River transported sediment diffusion
+             coefficient in marine realm [m2/a] -->
+        <criver>20.</criver>
+    </creep>
+    <flexure>
+        <!-- Time step used to compute the isostatic flexure. -->
+        <ftime>100000.0</ftime>
+        <!-- Definition of the flexural grid:
+             It is possible to setup a flexural grid at a resolution higher than the one used
+             for the TIN to increase computational speed. In this case you need to define the
+             discretization along X and Y axis. By default the same resolution as the one given
+             for the DEM file is used and the following 2 parameters are not required. -->
+
+        <!-- Mantle density [kg/m3] -->
+        <dmantle>3340</dmantle>
+        <!-- Sediment density [kg/m3] -->
+        <dsediment>2670</dsediment>
+        <!-- Young's Modulus [Pa] -->
+        <youngMod>100E9</youngMod>
+        <!-- The lithospheric elastic thickness (Te) can be expressed as a scalar if you assume
+             a uniform thickness for the model area in this case the value is given in the next
+             parameter [m] - (optional) -->
+        <elasticGrid>../preprocess/run/Tegpmlmeters.csv</elasticGrid>
+        <!-- In case where the lithospheric elastic thickness (Te) varies on the simulated region
+             you might want to use a grid defining for each points on the flexural grid the estimate
+             Te value [m]. You will need to ensure that the grid dimensions match the number of
+             points given for the flexural grid resolution - (optional) -->
+        <!-- elasticGrid>data/elasticthickness.csv</elasticGrid> -->
+
+        <boundary_W>Mirror</boundary_W>
+        <boundary_E>Mirror</boundary_E>
+        <boundary_S>Mirror</boundary_S>
+        <boundary_N>Mirror</boundary_N>
+    </flexure>
+
+    <!-- Erodibility structure simple
+         This option allows you to specify different erodibility values either on the surface
+        or within a number of initial stratigraphic layers. -->
+    <erocoeff>
+        <!-- Number of erosion layers. -->
+        <erolayers>1</erolayers>
+        <!-- The layering is defined from top to bottom, with:
+            - either a constant erodibility value for the entire layer or with an erodibility map
+            - either a constant thickness for the entire layer or with a thickness map -->
+        <!-- Constant erodibility and layer thickness -->
+        <erolay>
+            <!-- Uniform erodibility value for the considered layer. -->
+            <eromap>../preprocess/run/ero133.csv</eromap>
+            <!-- Variable thicknesses for the considered layer [m]. -->
+            <thcst>20000.</thcst>
+        </erolay>
+
+    </erocoeff>
+
+    <!-- Output folder path -->
+    <outfolder>50wCdif2</outfolder>
+
+</badlands>
