@@ -3,6 +3,11 @@
 
 [![code](https://img.shields.io/badge/code-badlands-orange)](https://pypi.org/project/badlands)
 
+
+<div align="center">
+    <img width=1000 src="https://github.com/clairemallard/SouthAfricanLandscape_30Ma/blob/main/Images/SALandscape.png" alt="sketch Badlands South Africa" title="Badlands South African Model"</img>
+</div>
+
 ## What’s in here?
 You can use the following scripts and inputs to run landscape african models for the last 30 Ma coupled with four different dynamic topography estimations extracted from 4 different numerical models:
 + AY18 from Cao, W., Flament, N., Zahirovic, S., Williams, S., & Müller, R. D. The interplay of dynamic topography and eustasy on continental flooding in the late Paleozoic. Tectonophysics, 761, 108-121 (2019). 
