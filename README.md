@@ -1,6 +1,5 @@
 # SouthAfricanLandscape_30Ma
 
-=====
 
 [![code](https://img.shields.io/badge/code-badlands-orange)](https://pypi.org/project/badlands)
 
