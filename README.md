@@ -1,6 +1,8 @@
 # SouthAfricanLandscape_30Ma
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/badlandsmodel/pybadlands-demo-serial)](https://cloud.docker.com/u/badlandsmodel/repository/docker/badlandsmodel/badlands)
+=========
+
+[![code](https://img.shields.io/badge/code-badlands-orange)](https://pypi.org/project/badlands)
 
 ## What’s in here?
 You can use the following scripts and inputs to run landscape african models for the last 30 Ma coupled with four different dynamic topography estimations extracted from 4 different numerical models:
